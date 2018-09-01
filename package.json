@@ -1,0 +1,51 @@
+{
+  "name": "md-links-ysa",
+  "version": "1.0.0",
+  "description": "search,find and verify links working in md files with node.js",
+  "main": "index.js",
+  "jest": {
+    "verbose": true,
+    "coverageThreshold": {
+        "global": {
+            "branches": 70,
+            "functions": 70,
+            "lines": 70,
+            "statements": 70
+        }
+    }
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Yasnaret/scl-2018-01-FE-markdown.git"
+  },
+  "keywords": [
+    "link",
+    "markdown",
+    "broken",
+    "active",
+    "url",
+    "html"
+  ],
+  "author": "Yasnaret Soto Almonacid <yasnaret.soto@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Yasnaret/scl-2018-01-FE-markdown/issues"
+  },
+  "homepage": "https://github.com/Yasnaret/scl-2018-01-FE-markdown#readme",
+  "dependencies": {
+    "commander": "^2.17.1",
+    "eslint": "^5.4.0",
+    "latest-version": "^4.0.0",
+    "marked": "^0.5.0"
+  },
+  "devDependencies": {
+    "jest": "^23.5.0",
+    "nodemon": "^1.18.3"
+  },
+  "bin": {
+    "md-links": "./cli.js"
+  }
+}
