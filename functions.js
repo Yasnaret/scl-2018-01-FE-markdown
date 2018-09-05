@@ -121,7 +121,7 @@ const validateStatus = links =>{
   return Promise.all(validateLinks).then(finalLinks => {
     links.working = goodlink;
     links.broken = badlink;
-    return finalLinks;
+    return(finalLinks);
   });
 };
 

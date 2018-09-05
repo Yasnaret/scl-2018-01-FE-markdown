@@ -27,7 +27,7 @@ const mdLinksValidate = () =>{
   const validate = tomdLinks.validateStatus(links1);
   validate.then(data=>{
     data.map((link) =>{
-      const showThis2 = `${links.path}:${colors.yellow(link.line)} ${colors.white.underline(link.href)} ${colors.green(link.statusText)} ${colors.green(link.status)} ${colors.blue(link.text)}`;
+      const showThis2 = `${colors.bold.grey(links.path)}:${colors.yellow(link.line)}\n${colors.white.underline(link.href)} ${colors.green(link.statusText)} ${colors.green(link.status)} ${colors.blue(link.text)}`;
       console.log(showThis2);
     });
   });
@@ -54,17 +54,19 @@ const mdLinksStats = () =>{
 const mdLinks = () => {
   const args = process.argv;
   if ((args[3] == undefined) && (args[2] != undefined)) {
-    mdLinksNoOptions();
+     return mdLinksNoOptions();
   } else if (((args[3] === '--validate') || (args[3] === '-v')) && (args[4] === undefined)) {
-    mdLinksValidate();
+     return mdLinksValidate();
   } else if ((args[3] === '--stats') || (args[3] === '-s') && (args[4] === undefined)) {
-    mdLinksStats();
+     return mdLinksStats();
   } else if ((args[3] === '--stats') && (args[4] === '--validate')) {
     mdLinksValidate();
     mdLinksStats();
+    return 
   } else if ((args[3] === '--validate') && (args[4] === '--stats')) {
     mdLinksValidate();
-    mdLinksStats(); 
+    mdLinksStats();
+    return 
   }else{
     console.log(`${colors.bgCyan('md-links --help')}\n`)
     console.log(`${colors.bold.white('md-links')} ${colors.bold.green('<path>')} ${colors.bold.cyan('[options]')}\n`)}

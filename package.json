@@ -1,7 +1,7 @@
 {
   "name": "md-links-ysa",
-  "version": "1.0.0",
-  "description": "search,find and verify links working in md files with node.js",
+  "version": "1.0.1",
+  "description": "search,find and verify links working in .md files with node.js",
   "main": "./indexindex.js",
   "jest": {
     "verbose": true,
