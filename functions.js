@@ -4,13 +4,9 @@ const Marked = require('marked');
 const axios = require('axios');
 const colors = require('colors');
 
-
 let links = [];
-
-
 // .............................................................Captura los datos necesarios y opcionales para la correcta ejecución del módulo.
 const dataFromUser = () => pathfile = process.argv[2];
-
 
 // .............................................................Retorna verdadero si el archivo existe;
 const existFile = pathfile => {
@@ -39,8 +35,8 @@ const pathAbsolute = pathfile2 => {
 
 
 const readFile = pathfile3 => {
-  let data = fs.readFileSync(pathfile3,'utf8');
- return data;
+  let data = fs.readFileSync(pathfile3, 'utf8');
+  return data;
 };
 
 
@@ -73,6 +69,8 @@ const markdownLinkExtractor = (data) => {
   return (links);
 };
 
+//................................................................................el documento se divide en lineas 
+
 const addLineNumber = (data, links)=>{
   const datosPorLinea = data.split('\n');
 
@@ -92,7 +90,7 @@ const addLineNumber = (data, links)=>{
 
 const noOptions = (links) =>{
   links.map(link=>{
-    const showThis = `${links.path}:${colors.yellow(link.line)} ${colors.white.underline(link.href)} ${colors.cyan(link.text)}`;
+    const showThis = `${colors.bold.green(links.path)}:${colors.bgYellow.black(link.line)}\n${colors.white.underline(link.href)} ${colors.cyan(link.text)}`;
     console.log(showThis);
   });
 };
@@ -121,7 +119,7 @@ const validateStatus = links =>{
   return Promise.all(validateLinks).then(finalLinks => {
     links.working = goodlink;
     links.broken = badlink;
-    return(finalLinks);
+    return (finalLinks);
   });
 };
 

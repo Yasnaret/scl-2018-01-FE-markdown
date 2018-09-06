@@ -45,7 +45,7 @@ const mdLinksStats = () =>{
   const stats = tomdLinks.validateStatus(links1);
   stats.then(data=>{
     let showIt = ` \n${colors.bold.blue('Número de Links Activos:')}${links.working}`;
-    showIt += ` \n${colors.bold.red('Número de Links Rotos:')}${links.broken}`; 
+    showIt += ` \n${colors.bold.red('Número de Links Rotos:')}${links.broken }`; 
     showIt += ` \n${colors.bold.yellow('Número de Links Totales:')}${links.working + links.broken}`;
     console.log(showIt);     
   });
@@ -54,26 +54,22 @@ const mdLinksStats = () =>{
 const mdLinks = () => {
   const args = process.argv;
   if ((args[3] == undefined) && (args[2] != undefined)) {
-     return mdLinksNoOptions();
+    return mdLinksNoOptions();
   } else if (((args[3] === '--validate') || (args[3] === '-v')) && (args[4] === undefined)) {
-     return mdLinksValidate();
+    return mdLinksValidate();
   } else if ((args[3] === '--stats') || (args[3] === '-s') && (args[4] === undefined)) {
-     return mdLinksStats();
+    return mdLinksStats();
   } else if ((args[3] === '--stats') && (args[4] === '--validate')) {
-    mdLinksValidate();
-    mdLinksStats();
-    return 
+    return mdLinksValidate(mdLinksStats());
   } else if ((args[3] === '--validate') && (args[4] === '--stats')) {
-    mdLinksValidate();
-    mdLinksStats();
-    return 
-  }else{
-    console.log(`${colors.bgCyan('md-links --help')}\n`)
-    console.log(`${colors.bold.white('md-links')} ${colors.bold.green('<path>')} ${colors.bold.cyan('[options]')}\n`)}
-    console.log(`${colors.bold.green('<path>')} : Ruta absoluta o relativa al archivo (requerido)\n`)
-    console.log(`${colors.bold.cyan('[options]')} :\n ${colors.bold.red('-- validate')} :  Valor que determina si se desea validar los links encontrados en el archivo.`)
-    console.log(`${colors.bold.cyan('[options]')} :\n ${colors.bold.red('-- stats')} :  Valor que entrega estadisticas respecto a la totalidad de links encontrados,\n cuantos funcionan cuantos no, y totalidad de links encontrados.\n`)
-
+    return mdLinksValidate(mdLinksStats());
+  } else {
+    console.log(`${colors.bgCyan('md-links --help')}\n`);
+    console.log(`${colors.bold.white('md-links')} ${colors.bold.green('<path>')} ${colors.bold.cyan('[options]')}\n`);
+    console.log(`${colors.bold.green('<path>')} : Ruta absoluta o relativa al archivo (requerido)\n`);
+    console.log(`${colors.bold.cyan('[options]')} :\n ${colors.bold.red('-- validate')} :  Valor que determina si se desea validar los links encontrados en el archivo.`);
+    console.log(`${colors.bold.cyan('[options]')} :\n ${colors.bold.red('-- stats')} :  Valor que entrega estadisticas respecto a la totalidad de links encontrados,\n cuantos funcionan cuantos no, y totalidad de links encontrados.\n`);
+  }
 };
 
 mdLinks();
