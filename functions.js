@@ -69,7 +69,7 @@ const markdownLinkExtractor = (data) => {
   return (links);
 };
 
-//................................................................................el documento se divide en lineas 
+// ................................................................................el documento se divide en lineas 
 
 const addLineNumber = (data, links)=>{
   const datosPorLinea = data.split('\n');
