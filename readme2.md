@@ -21,4 +21,9 @@ Ejecución línea de comandos:
 **[options]** Puede adoptar los siguientes valores:  
 **--stats** Imprime cantidad total de links y con su estado actual ,activo o roto.  
 **--validate** Entrega estadisticas sobre esos links  
+**--valodate --stats** Entrega la cantidad de links asi como el estado de los mismos-activos o rotos-ademas de las estadisticas sobre los links  
+
+Ejemplos de uso:
+
+
 
