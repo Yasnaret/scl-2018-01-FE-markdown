@@ -5,7 +5,7 @@ const axios = require('axios');
 const colors = require('colors');
 
 let links = [];
-const pathfile=process.argv[2];
+
 // .............................................................Captura los datos necesarios y opcionales para la correcta ejecución del módulo.
 const dataFromUser = () => pathfile = process.argv[2];
 
