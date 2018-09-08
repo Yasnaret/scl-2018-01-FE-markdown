@@ -9,7 +9,6 @@ const mdLinksNoOptions = () => {
   const pathfile1 = tomdLinks.existFile(pathfile);
   const pathfile2 = tomdLinks.pathExt(pathfile1);
   const pathfile3 = tomdLinks.pathAbsolute(pathfile2);
-  
   const data = tomdLinks.readFile(pathfile3);
   const links = tomdLinks.markdownLinkExtractor(data);
   const links1 = tomdLinks.addLineNumber(data, links);
@@ -53,6 +52,7 @@ const mdLinksStats = () =>{
 
 const mdLinks = () => {
   const args = process.argv;
+  console.log(args )
   if ((args[3] == undefined) && (args[2] != undefined)) {
     return mdLinksNoOptions();
   } else if (((args[3] === '--validate') || (args[3] === '-v')) && (args[4] === undefined)) {
